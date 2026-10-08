@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Produtos (Estoque) — PetVida</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="conteudo">
+      <h1><a href="../index.html">PetVida</a></h1>
+      <p>Sistema de gestão de pet shop — banho, tosa, clínica e loja</p>
+    </div>
+  </header>
+  <nav class="menu" aria-label="Menu principal">
+    <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../paginas/tutores.html">Tutores</a></li>
+        <li><a href="../paginas/animais.html">Animais</a></li>
+        <li><a href="../paginas/funcionarios.html">Funcionários</a></li>
+        <li><a href="../paginas/agendamentos.html">Agendamentos</a></li>
+        <li><a href="../paginas/fornecedores.html">Fornecedores</a></li>
+        <li><a href="../paginas/produtos.html" aria-current="page">Produtos</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="cartao">
+      <h2>Cadastro de Produtos (Estoque)</h2>
+      <p>Cadastre os produtos vendidos na loja e acompanhe estoque, preço e validade.</p>
+      <form id="form-produtos" data-api="../api/produtos.php" data-resultado="resultado" novalidate>
+        <div class="linha">
+          <div class="campo">
+            <label for="codigo">Código</label>
+            <input type="text" id="codigo" name="codigo" required maxlength="8" placeholder="RAC-0001">
+            <span class="msg-erro"></span>
+          </div>
+          <div class="campo">
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" name="descricao" required maxlength="120" placeholder="Ração adulto raças pequenas 3 kg">
+            <span class="msg-erro"></span>
+          </div>
+        </div>
+        <div class="linha">
+          <div class="campo">
+            <label for="cnpj_fornecedor">CNPJ do fornecedor</label>
+            <input type="text" id="cnpj_fornecedor" name="cnpj_fornecedor" required maxlength="18">
+            <span class="msg-erro"></span>
+          </div>
+          <div class="campo">
+            <label for="validade">Validade</label>
+            <input type="date" id="validade" name="validade">
+            <span class="dica">Deixe em branco para itens que não vencem.</span>
+            <span class="msg-erro"></span>
+          </div>
+        </div>
+        <div class="linha">
+          <div class="campo">
+            <label for="preco_custo">Preço de custo (R$)</label>
+            <input type="number" id="preco_custo" name="preco_custo" required step="0.01" min="0">
+            <span class="msg-erro"></span>
+          </div>
+          <div class="campo">
+            <label for="margem">Margem de lucro (%)</label>
+            <input type="number" id="margem" name="margem" required step="0.1" min="0">
+            <span class="msg-erro"></span>
+          </div>
+          <div class="campo">
+            <label for="quantidade">Quantidade em estoque</label>
+            <input type="number" id="quantidade" name="quantidade" required min="0">
+            <span class="msg-erro"></span>
+          </div>
+          <div class="campo">
+            <label for="estoque_minimo">Estoque mínimo</label>
+            <input type="number" id="estoque_minimo" name="estoque_minimo" required min="1">
+            <span class="msg-erro"></span>
+          </div>
+        </div>
+        <div class="acoes">
+          <button type="submit">Enviar</button>
+          <button type="reset" class="secundario">Limpar</button>
+        </div>
+      </form>
+      <div id="resultado" class="resultado" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="cartao">
+      <h3>Regras verificadas pelo servidor</h3>
+      <ul>
+        <li>Código no formato AAA-0000; CNPJ do fornecedor validado.</li>
+        <li>O sistema calcula o preço de venda (custo + margem) e o valor parado em estoque.</li>
+        <li>Abaixo do mínimo, sugere a quantidade de reposição.</li>
+        <li>Produtos vencidos geram alerta; vencendo em até 30 dias, sugere promoção de 20%.</li>
+      </ul>
+    </section>
+
+    <a class="voltar" href="../index.html">&larr; Voltar à página inicial</a>
+  </main>
+  <footer>PetVida — Trabalho de Tecnologias para Internet II (Momento I)</footer>
+  <script src="../js/app.js"></script>
+</body>
+</html>
