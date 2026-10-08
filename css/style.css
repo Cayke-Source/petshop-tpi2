@@ -1,0 +1,150 @@
+/* PetVida — Sistema de Gestão de Pet Shop
+   Folha de estilos única usada por todas as páginas. */
+
+:root {
+  --cor-fundo: #f4f5f7;
+  --cor-cartao: #ffffff;
+  --cor-texto: #1f2933;
+  --cor-suave: #616e7c;
+  --cor-primaria: #0f766e;
+  --cor-primaria-escura: #115e59;
+  --cor-borda: #d9dde3;
+  --cor-erro: #b91c1c;
+  --cor-erro-fundo: #fef2f2;
+  --cor-ok: #166534;
+  --cor-ok-fundo: #f0fdf4;
+  --cor-alerta: #92400e;
+  --cor-alerta-fundo: #fffbeb;
+  --raio: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+}
+
+header.topo {
+  background: #1f2933;
+  color: #fff;
+  padding: 18px 16px;
+}
+header.topo .conteudo { max-width: 960px; margin: 0 auto; }
+header.topo h1 { margin: 0; font-size: 1.5rem; }
+header.topo h1 a { color: #fff; text-decoration: none; }
+header.topo p { margin: 4px 0 0; color: #cbd2d9; font-size: .95rem; }
+
+/* Menu principal */
+nav.menu { background: var(--cor-primaria); }
+nav.menu ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 8px;
+  max-width: 960px;
+  display: flex;
+  flex-wrap: wrap;
+}
+nav.menu a {
+  display: block;
+  padding: 12px 14px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+}
+nav.menu a:hover,
+nav.menu a[aria-current="page"] { background: var(--cor-primaria-escura); }
+
+main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; }
+
+.cartao {
+  background: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.grade-modulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.grade-modulos a.modulo {
+  display: block;
+  background: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-left: 5px solid var(--cor-primaria);
+  border-radius: var(--raio);
+  padding: 18px;
+  color: inherit;
+  text-decoration: none;
+}
+.grade-modulos a.modulo:hover { border-color: var(--cor-primaria); }
+.grade-modulos h3 { margin: 0 0 6px; color: var(--cor-primaria-escura); }
+.grade-modulos p { margin: 0; color: var(--cor-suave); font-size: .95rem; }
+
+form .linha {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+form .campo { display: flex; flex-direction: column; margin-bottom: 14px; }
+form label { font-weight: 600; margin-bottom: 4px; font-size: .95rem; }
+form input, form select, form textarea {
+  font: inherit;
+  padding: 9px 10px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  background: #fff;
+}
+form textarea { min-height: 90px; resize: vertical; }
+form input:focus, form select:focus, form textarea:focus {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 1px;
+}
+form .campo.invalido input,
+form .campo.invalido select,
+form .campo.invalido textarea { border-color: var(--cor-erro); background: var(--cor-erro-fundo); }
+form .msg-erro { color: var(--cor-erro); font-size: .85rem; min-height: 1.1em; }
+form .dica { color: var(--cor-suave); font-size: .82rem; }
+
+.acoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--cor-primaria);
+  background: var(--cor-primaria);
+  color: #fff;
+  cursor: pointer;
+}
+button:hover { background: var(--cor-primaria-escura); }
+button.secundario { background: #fff; color: var(--cor-primaria); }
+button:disabled { opacity: .6; cursor: wait; }
+
+.resultado { margin-top: 20px; border-radius: var(--raio); padding: 16px 18px; display: none; }
+.resultado.visivel { display: block; }
+.resultado.ok { background: var(--cor-ok-fundo); border: 1px solid #bbf7d0; color: var(--cor-ok); }
+.resultado.erro { background: var(--cor-erro-fundo); border: 1px solid #fecaca; color: var(--cor-erro); }
+.resultado h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.resultado ul { margin: 0; padding-left: 20px; color: var(--cor-texto); }
+.resultado .alertas { margin-top: 10px; background: var(--cor-alerta-fundo); color: var(--cor-alerta); border-radius: 6px; padding: 10px 12px; }
+
+.voltar { display: inline-block; margin-top: 8px; color: var(--cor-primaria-escura); font-weight: 600; }
+
+table.entidades { width: 100%; border-collapse: collapse; font-size: .95rem; }
+table.entidades th, table.entidades td { text-align: left; padding: 8px; border-bottom: 1px solid var(--cor-borda); vertical-align: top; }
+table.entidades th { background: #f8f9fb; }
+
+footer { text-align: center; color: var(--cor-suave); font-size: .85rem; padding: 16px; }
+
+@media (max-width: 600px) {
+  .cartao { padding: 16px; }
+  nav.menu a { padding: 10px; font-size: .9rem; }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início — PetVida</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="conteudo">
+      <h1><a href="index.html">PetVida</a></h1>
+      <p>Sistema de gestão de pet shop — banho, tosa, clínica e loja</p>
+    </div>
+  </header>
+  <nav class="menu" aria-label="Menu principal">
+    <ul>
+        <li><a href="index.html" aria-current="page">Início</a></li>
+        <li><a href="paginas/tutores.html">Tutores</a></li>
+        <li><a href="paginas/animais.html">Animais</a></li>
+        <li><a href="paginas/funcionarios.html">Funcionários</a></li>
+        <li><a href="paginas/agendamentos.html">Agendamentos</a></li>
+        <li><a href="paginas/fornecedores.html">Fornecedores</a></li>
+        <li><a href="paginas/produtos.html">Produtos</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="cartao">
+      <h2>Bem-vindo ao PetVida</h2>
+      <p>O PetVida organiza o dia a dia de um pet shop com banho e tosa, clínica veterinária e loja:
+      cadastro de tutores e animais, agenda de serviços, equipe, fornecedores e estoque de produtos.
+      Escolha um módulo abaixo ou use o menu.</p>
+    </section>
+
+    <section class="grade-modulos" aria-label="Módulos do sistema">
+        <a class="modulo" href="paginas/tutores.html">
+          <h3>Tutores</h3>
+          <p>Donos dos animais: dados pessoais e contato.</p>
+        </a>
+        <a class="modulo" href="paginas/animais.html">
+          <h3>Animais</h3>
+          <p>Ficha de cada pet: espécie, raça, idade, peso e porte.</p>
+        </a>
+        <a class="modulo" href="paginas/agendamentos.html">
+          <h3>Agendamentos</h3>
+          <p>Banho, tosa, consulta e vacina com preço calculado.</p>
+        </a>
+        <a class="modulo" href="paginas/funcionarios.html">
+          <h3>Funcionários</h3>
+          <p>Equipe da loja e da clínica, com função e salário.</p>
+        </a>
+        <a class="modulo" href="paginas/fornecedores.html">
+          <h3>Fornecedores</h3>
+          <p>Empresas que abastecem a loja e prazos de entrega.</p>
+        </a>
+        <a class="modulo" href="paginas/produtos.html">
+          <h3>Produtos</h3>
+          <p>Estoque, preço de venda e controle de validade.</p>
+        </a>
+    </section>
+
+    <section class="cartao" style="margin-top:24px">
+      <h2>Modelo de dados planejado</h2>
+      <p>Nesta etapa o banco de dados ainda não foi criado. Os formulários foram planejados para as sete tabelas abaixo:</p>
+      <div style="overflow-x:auto">
+      <table class="entidades">
+        <thead><tr><th>Tabela</th><th>Para que serve</th><th>Colunas previstas</th></tr></thead>
+        <tbody>
+          <tr><td><strong>tutores</strong></td><td>Pessoas responsáveis pelos animais</td><td>id, nome, cpf, data_nascimento, email, telefone, cidade, uf</td></tr>
+          <tr><td><strong>animais</strong></td><td>Pets atendidos (N animais para 1 tutor)</td><td>id, tutor_id, nome, especie, raca, sexo, data_nascimento, peso</td></tr>
+          <tr><td><strong>funcionarios</strong></td><td>Equipe do pet shop</td><td>id, nome, cpf, email, funcao, data_admissao, salario, crmv</td></tr>
+          <tr><td><strong>servicos</strong></td><td>Catálogo de serviços e preços base</td><td>id, nome, preco_base, duracao_minutos, varia_por_porte</td></tr>
+          <tr><td><strong>agendamentos</strong></td><td>Serviços marcados para um animal</td><td>id, animal_id, servico_id, funcionario_id, data_hora, porte, leva_e_traz, valor, observacoes</td></tr>
+          <tr><td><strong>fornecedores</strong></td><td>Empresas que vendem para a loja</td><td>id, razao_social, cnpj, email, telefone, categoria, prazo_entrega, pedido_minimo</td></tr>
+          <tr><td><strong>produtos</strong></td><td>Itens à venda (N produtos para 1 fornecedor)</td><td>id, fornecedor_id, codigo, descricao, preco_custo, margem, quantidade, estoque_minimo, validade</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+  </main>
+  <footer>PetVida — Trabalho de Tecnologias para Internet II (Momento I)</footer>
+</body>
+</html>
